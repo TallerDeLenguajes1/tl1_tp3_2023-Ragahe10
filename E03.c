@@ -20,16 +20,15 @@ int main()
 }
 void cargarnombres(char *k[])
 {
-    char buff[20];
-    int largo;
+    char *buff;
+    buff = malloc(sizeof(char)*100);
     for (int i = 0; i < 5; i++){
         printf("\nIngrese nombre %d", i+1);
         gets(buff);
-        largo = strlen(buff);
-        k[i] = malloc(sizeof(char)*(largo+1));
+        k[i] = malloc(sizeof(char)*((strlen(buff))+1));
         strcpy(k[i],buff);
     }
-    
+    free(buff);
 }
 void mostrar(char *k[])
 {
